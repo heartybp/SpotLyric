@@ -1,8 +1,9 @@
-# import Spotipy and SpotifyClientCredentials to communicate with Spotify API
-
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
+import lyricsgenius
 from flask import Flask, render_template, request
+
+app = Flask(__name__)
 
 def authenticate():
     client_id = "YOUR-CLIENT-ID"
@@ -16,17 +17,26 @@ def search_song(sp, song):
     search_list = sp.search(q=song, type='track', limit=10)
     return search_list['tracks']['items']
 
-# 'tracks' and 'items' are key names used in the JSON response returned by the Spotify API when you perform a search query for tracks
-# -- return results['tracks']['items'] -- searches for matching items in spotify's dictionary of songs
-
 def get_track_details(sp, track_id):
     track = sp.track(track_id)
+
+    # Fetch lyrics using LyricsGenius API
+    genius_token = "YOUR-GENIUS-TOKEN"  # Replace with your Genius API token
+    genius = lyricsgenius.Genius(genius_token)
+    song = genius.search_song(track["name"], track["artists"][0]["name"])
+
+    # Add the lyrics to the track details dictionary
+    if song:
+        track["lyrics"] = song.lyrics
+    else:
+        track["lyrics"] = "Lyrics not found for this song."
+
     return track
 
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
-        spotify_api = authenticate_spotify()
+        spotify_api = authenticate()
         search_query = request.form["search_query"]
         songs = search_song(spotify_api, search_query)
 
@@ -38,11 +48,16 @@ def index():
 
 @app.route("/song/<track_id>")
 def song_details(track_id):
-    spotify_api = authenticate_spotify()
+    spotify_api = authenticate()
     track = get_track_details(spotify_api, track_id)
 
-    return render_template("song_details.html", track=track)
+    return render_template("details.html", track=track)
+
+@app.route("/details/<track_id>")
+def song_details_page(track_id):
+    spotify_api = authenticate()
+    track = get_track_details(spotify_api, track_id)
+    return render_template("details.html", track=track)
 
 if __name__ == "__main__":
     app.run(debug=True)
-
