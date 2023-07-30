@@ -6,9 +6,10 @@ Users can then select the desired search result and view more detailed informati
 Lyrics for the song are displayed on the song information page.
 Embedded song previews are also available for listening. 
 
+<br>
 Technologies/Frameworks/Features:  
 
-* Python: Developed the backend of the application using Python and used it for API integration
+* Python: Developed the backend of the application using Python and used it for API integration.
 * Flask: Used to create the web application and handle user requests.
 * Spotipy: Included the Spotipy library to interact with the Spotify Web API and retrieve song information.
 * LyricsGenius: Utilized the LyricsGenius API to fetch lyrics for the selected song.
