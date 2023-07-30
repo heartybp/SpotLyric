@@ -6,7 +6,7 @@ Users can then select the desired search result and view more detailed informati
 Lyrics for the song are displayed on the song information page.
 Embedded song previews are also available for listening. 
 
-Technologies/Frameworks/Features:
+Technologies/Frameworks/Features:  
 
 * Python: Developed the backend of the application using Python and used it for API integration
 * Flask: Used to create the web application and handle user requests.
