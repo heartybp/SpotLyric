@@ -1,18 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <title>Song Search Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='results-style.css') }}">
 </head>
 <body>
 
-    <h1>Search Results</h1>
+    <div class="search-header">
+        <h1>Search for a Song</h1>
+    </div>
 
-    <form method="post">
-        <input type="text" name="search-query" placeholder="Enter the name of the song">
-        <button type="submit">Search</button>
-    </form>
+    <div class="search-container">
+        <form method="post">
+            <input type="text" name="search_query" placeholder="Enter the name of the song">
+        </form>
+    </div>
 
-    {% if songs %}
+    <div class="list-container">
+        {% if songs %}
         <h2>Search Results:</h2>
         <ol>
             {% for song in songs %}
@@ -22,12 +27,12 @@
             </li>
             {% endfor %}
         </ol>
-
     {% endif %}
+    </div>
+
     {% if error %}
         <p class="error">{{ error }}</p>
     {% endif %}
     <script src="{{ url_for('static', filename='script.js') }}"></script>
-    
 </body>
 </html>
