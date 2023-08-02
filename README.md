@@ -19,3 +19,7 @@ Technologies/Frameworks/Features:
 * Search Functionality: Implemented a robust search function that enables users to search for songs by name and discover matching tracks.
 * Detailed Song Information: Displayed detailed song information, including album, release date, and popularity, to enhance the user experience.
 * Audio Preview: Integrated an audio player to provide users with a preview of the selected song.
+
+## SpotLyric Video Demo
+https://github.com/heartybp/SpotLyric/assets/98626381/62e85603-f44c-42e3-8ae5-70a381a8d5a2
+
