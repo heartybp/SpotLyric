@@ -6,20 +6,31 @@ Users can then select the desired search result and view more detailed informati
 Lyrics for the song are displayed on the song information page.
 Embedded song previews are also available for listening. 
 
-<br>
-Technologies/Frameworks/Features:  
-
-* Python: Developed the backend of the application using Python and used it for API integration.
-* Flask: Used to create the web application and handle user requests.
-* Spotipy: Included the Spotipy library to interact with the Spotify Web API and retrieve song information.
-* LyricsGenius: Utilized the LyricsGenius API to fetch lyrics for the selected song.
-* HTML/CSS: Designed the frontend of the application using HTML and CSS.
-
-* Jinja2 Templating: Employed Jinja2 templating to dynamically render data from the backend to the frontend.
-* Search Functionality: Implemented a robust search function that enables users to search for songs by name and discover matching tracks.
-* Detailed Song Information: Displayed detailed song information, including album, release date, and popularity, to enhance the user experience.
-* Audio Preview: Integrated an audio player to provide users with a preview of the selected song.
-
 ## SpotLyric Video Demo
 https://github.com/heartybp/SpotLyric/assets/98626381/62e85603-f44c-42e3-8ae5-70a381a8d5a2
+
+### Technologies:
+* Python: Developed the backend and included API integration.
+* Flask: Used to create the web application and handle user requests.
+* [Spotipy](https://spotipy.readthedocs.io/en/2.22.1/): Python library that interacts with the Spotify Web API and retrieve song information.
+* [LyricsGenius](https://lyricsgenius.readthedocs.io/en/master/): Python client for Genius API - used to fetch lyrics for the selected song.
+* HTML/CSS: Designed the frontend of the application using HTML and CSS.
+
+Application Features: search functionality, integrated audio player
+  
+### Notes:
+Known Issues:
+The Genius API response displays additional content in the lyrics section such as contributor information and language translations. 
+
+I removed my personal Spotify client ID + secret and Genius API token from uploaded GitHub code.<br>
+
+To run this application using Visual Studio Code:
+  * Download source files and open using VSCode
+  * Replace your Spotify client ID + secret and Genius token in app.py
+  * Initialize a virtual environment
+    ```python -m venv .venv```
+  * In the virtual environment, install spotipy and Flask ```pip install spotipy``` ```pip install Flask```
+  * Run Flask ```flask run```
+
+
 
