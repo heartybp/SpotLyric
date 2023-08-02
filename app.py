@@ -5,7 +5,9 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-def authenticate():
+def authenticate_spotify():
+    # Replace with your Spotify API credentials !!
+
     client_id = "YOUR-CLIENT-ID"
     client_secret = "YOUR-CLIENT-SECRET"
 
@@ -13,15 +15,17 @@ def authenticate():
     sp = spotipy.Spotify(client_credentials_manager=client_credentials)
     return sp
 
-def search_song(sp, song):
-    search_list = sp.search(q=song, type='track', limit=10)
-    return search_list['tracks']['items']
+def search_song(sp, song_name):
+    results = sp.search(q=song_name, type='track', limit=20)
+    return results['tracks']['items']
 
 def get_track_details(sp, track_id):
     track = sp.track(track_id)
 
     # Fetch lyrics using LyricsGenius API
-    genius_token = "YOUR-GENIUS-TOKEN"  # Replace with your Genius API token
+    
+    # Replace with your Genius API token
+    genius_token = "YOUR-GENIUS-TOKEN" 
     genius = lyricsgenius.Genius(genius_token)
     song = genius.search_song(track["name"], track["artists"][0]["name"])
 
@@ -36,7 +40,7 @@ def get_track_details(sp, track_id):
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
-        spotify_api = authenticate()
+        spotify_api = authenticate_spotify()
         search_query = request.form["search_query"]
         songs = search_song(spotify_api, search_query)
 
@@ -48,14 +52,14 @@ def index():
 
 @app.route("/song/<track_id>")
 def song_details(track_id):
-    spotify_api = authenticate()
+    spotify_api = authenticate_spotify()
     track = get_track_details(spotify_api, track_id)
 
     return render_template("details.html", track=track)
 
 @app.route("/details/<track_id>")
 def song_details_page(track_id):
-    spotify_api = authenticate()
+    spotify_api = authenticate_spotify()
     track = get_track_details(spotify_api, track_id)
     return render_template("details.html", track=track)
 
