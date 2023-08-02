@@ -1,17 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <title>Song Search</title>
-    <link rel="stylesheet" href="static/style.css"+>
+    <link rel="stylesheet" href="static/index-style.css"+>
 </head>
 <body>
 
-    <h1>Search for a Song</h1>
+    <div class="search-header">
+        <h1>SpotLyric</h1>
+        <h2>Song Search</h2>
+    </div>
     
-    <form method="post">
-        <input type="text" name="search-query" placeholder="Enter the name of the song">
-        <button type="submit">Search</button>
-    </form>
+    <div class="search-container">
+        <form method="post">
+            <input type="text" name="search_query" placeholder="Enter the name of the song">
+        </form>
+    </div>
+    
+    <div class="about">
+        <p>Welcome to SpotLyric! Search for a song and view the lyrics. Spotipy library and Spotify API used to extract a list of songs and their data.</p>
+    </div>
     
 </body>
 </html>

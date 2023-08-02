@@ -1,0 +1,72 @@
+* {
+    box-sizing:border-box;
+    margin:0 auto;
+    padding:0;
+} 
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    max-width:600px;
+    background-image:linear-gradient(to right,#ff9696,#ff8025);
+}
+
+.song-info{
+    background-color:#fff;
+    border-style:ridge;
+    text-align:center;
+    margin-top:80px;
+    margin-bottom:30px;
+    line-height:3rem;
+    padding-top:15px;
+}
+
+
+iframe{
+    display:block;
+    border-style:none;
+}
+
+/* .search-container {
+    display:flex;
+    justify-content:left;
+    align-items:center;
+}
+
+input{
+    width:540px;
+    height:45px;
+    border:none;
+    outline:none;
+    padding:10px;
+    padding-left:45px;
+    border-radius:40px;
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/5/55/Magnifying_glass_icon.svg");
+    background-size:17px;
+    background-repeat:no-repeat;
+    background-position:16px center;
+} */
+
+a{
+    font-size:25px;
+    color:#fff;
+    display:block;
+    text-align:center;
+    text-decoration:none;
+    margin-bottom:10px;
+}
+
+a:hover{
+    color:#000;
+}
+
+#lyrics{
+    font-size:20px;
+    text-align:center;
+    margin-bottom:20px;
+}
+
+pre{
+    /* font-family: "courier new", courier, monospace; */
+    font-size: 15px;
+ }
+

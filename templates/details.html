@@ -1,23 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Song Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='details-style.css') }}">
 </head>
 <body>
-    <h1>Song Details</h1>
-    <h2>Title: {{ track['name'] }}</h2>
-    <h3>Artists: {% for artist in track['artists'] %}{{ artist['name'] }}{% if not loop.last %}, {% endif %}{% endfor %}</h3>
-    <p>Album: {{ track['album']['name'] }}</p>
-    <p>Release Date: {{ track['album']['release_date'] }}</p>
-    <p>Popularity: {{ track['popularity'] }}</p>
-    
-    <audio controls>
-        <source src="{{ track['preview_url'] }}" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-    <a href="/">Back to Search</a>
 
+    <div class="song-info">
+        <h1>Song Details</h1>
+        <h2>Title: {{ track['name'] }}</h2>
+        <h3>Artists: {% for artist in track['artists'] %}{{ artist['name'] }}{% if not loop.last %}, {% endif %}{% endfor %}</h3>
+        <p>Album: {{ track['album']['name'] }}</p>
+        <p>Release Date: {{ track['album']['release_date'] }}</p>
+        <p>Popularity: {{ track['popularity'] }}</p>
+    </div>
+
+    <iframe style="border-radius: 12px;" src="https://open.spotify.com/embed/track/{{ track['id'] }}" width="75%" height="125" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+    <a href="/">Back to Search</a>
+    <!-- 
+    <div class="search-container">
+        <form method="post">
+            <input type="text" name="search_query" placeholder="Enter the name of the song">
+        </form>
+    </div>
+     -->
+    <h3 id="lyrics">Lyrics</h3>
+
+    <pre>{{ track['lyrics'] }}</pre>
+    
 </body>
 </html>
+
+
