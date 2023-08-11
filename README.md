@@ -7,6 +7,7 @@ Lyrics for the song are displayed on the song information page.
 Embedded song previews are also available for listening. 
 
 ## SpotLyric Video Demo
+Note: Turn audio on to hear song demos
 https://github.com/heartybp/SpotLyric/assets/98626381/62e85603-f44c-42e3-8ae5-70a381a8d5a2
 
 ### Technologies:
