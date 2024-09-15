@@ -22,7 +22,7 @@ Application Features: search functionality, integrated audio player
 Known Issues:
 The Genius API response displays additional content in the lyrics section such as contributor information and language translations. 
 
-I removed my personal Spotify client ID + secret and Genius API token from uploaded GitHub code.<br>
+Must have and input a Spotify client ID + secret and Genius API token to run this program.<br>
 
 To run this application using Visual Studio Code:
   * Download source files and open using VSCode
